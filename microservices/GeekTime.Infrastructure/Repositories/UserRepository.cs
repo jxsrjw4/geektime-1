@@ -1,4 +1,5 @@
-﻿using GeekTime.Domain.UserAggregate;
+﻿using GeekTime.Domain.MenuAggregate;
+using GeekTime.Domain.UserAggregate;
 using GeekTime.Infrastructure.Core;
 using System;
 using System.Collections.Generic;
@@ -6,10 +7,21 @@ using System.Text;
 
 namespace GeekTime.Infrastructure.Repositories
 {
-    class UserRepository : Repository<User, long, DomainContext>
+    public class UserRepository : Repository<User, string, DomainContext>, IUserRepository
     {
         public UserRepository(DomainContext context) : base(context)
         {
+            
+        }
+
+        public bool IsAccountExist(string userName, string password)
+        {
+            return false;
+        }
+
+        public List<Menu> GetMenus(string Token)
+        {
+            return new List<Menu>();
         }
     }
 }

@@ -10,7 +10,12 @@ namespace GeekTime.Infrastructure.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.HasKey(p => p.Id);
+            //builder.HasKey(p => p.Id);
+            builder.HasKey(p => p.UserId);
+
+            builder.Property(p => p.UserId).HasMaxLength(12);
+            builder.Property(p => p.UserName).HasMaxLength(50);
+
         }
     }
 }
