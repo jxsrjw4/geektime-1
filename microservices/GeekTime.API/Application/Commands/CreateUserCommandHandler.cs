@@ -12,11 +12,12 @@ namespace GeekTime.API.Application.Commands
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, string>
     {
         ICapPublisher _capPublisher;
-        UserRepository orderRepository;
-        public CreateUserCommandHandler(UserRepository userRepository)
-        { 
-            
+        IUserRepository _userRepository;
+        public CreateUserCommandHandler(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
         }
+        
 
         public Task<string> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {

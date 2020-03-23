@@ -12,6 +12,14 @@ namespace GeekTime.Domain.MenuAggregate
 
         public string PluginDllName { get; private set; }
 
+        public MenuItem() { }
+
+        public MenuItem(string pluginName, string pluginCode, string pluginDllName)
+        {
+            this.PluginName = pluginName;
+            this.PluginCode = pluginCode;
+            this.PluginDllName = pluginDllName;
+        }
 
         protected override IEnumerable<object> GetAtomicValues()
         {

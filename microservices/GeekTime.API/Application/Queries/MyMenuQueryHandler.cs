@@ -24,7 +24,7 @@ namespace GeekTime.API.Application.Queries
                 return Task.FromResult(new List<Menu>());
             }
 
-            return Task.FromResult(_userRepository.GetMenus(request.Token));
+            return Task.FromResult(new List<Menu>());
         }
     }
 }

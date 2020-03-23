@@ -42,6 +42,7 @@ namespace GeekTime.API.Extensions
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             return services;
         }
 

@@ -6,6 +6,7 @@ using GeekTime.API.Application.Commands;
 using GeekTime.API.Application.Queries;
 using GeekTime.Domain.MenuAggregate;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,7 @@ namespace GeekTime.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         IMediator _mediator;
@@ -27,12 +29,14 @@ namespace GeekTime.API.Controllers
             return await _mediator.Send(cmd, HttpContext.RequestAborted);
         }
 
-        [HttpPost]
-        public async Task<bool> Login([FromBody]UserLoginCommand cmd)
+        [HttpPost("Login")]
+        [AllowAnonymous]
+        public async Task<string> Login([FromBody]UserLoginCommand cmd)
         {
             return await _mediator.Send(cmd, HttpContext.RequestAborted);
         }
 
+        [HttpGet]
         public async Task<List<Menu>> QueryMyMenus([FromBody]MyMenuQuery myMenuQuery)
         {
             return await _mediator.Send(myMenuQuery);

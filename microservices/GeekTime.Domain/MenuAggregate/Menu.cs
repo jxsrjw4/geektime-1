@@ -9,5 +9,11 @@ namespace GeekTime.Domain.MenuAggregate
         public string MenuName { get; private set; }
 
         public List<MenuItem> MenuItemList { get; private set; }
+
+        public Menu() 
+        {
+            MenuName = "";
+            MenuItemList = new List<MenuItem>();
+        }
     }
 }

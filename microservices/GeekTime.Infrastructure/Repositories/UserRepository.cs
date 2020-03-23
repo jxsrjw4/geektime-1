@@ -16,12 +16,12 @@ namespace GeekTime.Infrastructure.Repositories
 
         public bool IsAccountExist(string userName, string password)
         {
-            return false;
+            return true;
         }
 
-        public List<Menu> GetMenus(string Token)
+        public List<Menu> GetMenus(string UserName)
         {
-            return new List<Menu>();
+            return null;
         }
     }
 }
